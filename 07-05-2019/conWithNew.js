@@ -1,16 +1,16 @@
 // constructor which can be used to create objects with the ".raining", ".noise",
 // and ".makenoise" properties
 function Animal(raining, noise) {
-    var animalObj = {};
-    animalObj.raining = raining;
-    animalObj.noise = noise;
-    animalObj.makeNoise = function () {
-        if (animalObj.raining === true) {
-            console.log(animalObj.noise);
+    // var this = {};
+    this.raining = raining;
+    this.noise = noise;
+    this.makeNoise = function () {
+        if (this.raining === true) {
+            console.log(this.noise);
         }
     };
     /*
-    animalObj = {
+    this = {
         "raining": true,
         "noise": "Woof!",
         "makeNoise": function() {
@@ -20,13 +20,14 @@ function Animal(raining, noise) {
         }
     }
     */
-    return animalObj;
+    //return this;
 }
 
 // sets the variables "dogs" and "cats" to be animal objects and initializes them with raining and noise properties
-var dogs = Animal(true, "Woof!");
-var cats = Animal(false, "Meow!");
-
+var dogs = new Animal(true, "Woof!");
+var cats = new Animal(false, "Meow!");
+console.log("dogs", dogs);
+console.log("cats", cats);
 // calling dogs and cats makeNoise methods
 dogs.makeNoise();
 cats.makeNoise();
